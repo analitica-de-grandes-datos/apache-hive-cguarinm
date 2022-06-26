@@ -44,3 +44,11 @@ LOAD DATA LOCAL INPATH 'data1.csv' INTO TABLE tbl1;
 /*
     >>> Escriba su respuesta a partir de este punto <<<
 */
+
+DROP TABLE IF EXISTS table0;
+
+CREATE TABLE table0 AS SELECT DISTINCT c0 FROM tbl0 LATERAL VIEW explode(c5) languages AS c0;
+ 
+INSERT OVERWRITE LOCAL DIRECTORY './output' 
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+SELECT * FROM table0;
