@@ -25,7 +25,7 @@ TBLPROPERTIES ("skip.header.line.count"="0");
 LOAD DATA LOCAL INPATH "data.tsv" OVERWRITE INTO TABLE data; 
  
 CREATE TABLE order_table AS SELECT f1, f2, f3 FROM data 
-                                ORDER BY f1, f3; 
+                                ORDER BY f1, f3, f2; 
  
 INSERT OVERWRITE LOCAL DIRECTORY './output' 
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
