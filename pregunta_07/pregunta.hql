@@ -48,7 +48,7 @@ LOAD DATA LOCAL INPATH 'data1.csv' INTO TABLE tbl1;
 
 DROP TABLE IF EXISTS table0;
 
-CREATE TABLE table0 AS SELECT c2, collect_set(c1) FROM tbl0
+CREATE TABLE table0 AS SELECT c2, collect_set(c1) AS c1 FROM tbl0
                         GROUP BY c2;
  
 INSERT OVERWRITE LOCAL DIRECTORY './output' 
